@@ -1,30 +1,53 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            <h1><i class="fa fa-folder-open"></i> Directory "{{ directory }}" <a
+                        href="{{ path('list', {'dir': parent_directory(directory)}) }}">up</a></h1>
+        </div>
+        <div class="col-md-6">
+            <form action="{{ path('mkdir', {'dir': directory}) }}" method="post" style="margin-top: 26px">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="path">
+                </div>
+                <div class="form-group">
+                    <button type="submit">Create New Folder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <table class="table">
         <thead>
         <tr>
             <th>Type</th>
             <th>Name</th>
-            <th>Path</th>
             <th>Last modified</th>
+            <th>Remove</th>
         </tr>
         </thead>
         <tbody>
         {% for file in files if file.type == 'dir' %}
             <tr>
-                <td>{{ file.type }}</td>
-                <td><a href="{{ path('list', {'dir': file.basename }) }}">{{ file.basename }}</a></td>
-                <td>{{ file.path }}</td>
+                <td><i class="fa fa-folder"></i></td>
+                <td><a href="{{ path('list', {'dir': file.path }) }}">{{ file.basename }}</a></td>
                 <td>{{ file.timestamp|date('d.m.Y H:i:s') }}</td>
+                <td>&nbsp;</td>
             </tr>
         {% endfor %}
         {% for file in files if file.type == 'file' %}
             <tr>
-                <td>{{ file.type }}</td>
+                <td><i class="fa fa-file"></i></td>
                 <td>{{ file.basename }}</td>
-                <td>{{ file.path }}</td>
                 <td>{{ file.timestamp|date('d.m.Y H:i:s') }}</td>
+                <td>
+                    <form action="{{ path('remove', {'path': file.path}) }}" method="post">
+                        <button type="submit">
+                            <i class="fa fa-trash"></i> Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

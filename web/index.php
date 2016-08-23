@@ -44,15 +44,56 @@ $app->post(
         $file = $request->files->get('file');
 
         if (!$file) {
-            return new RedirectResponse('/');
+            return new RedirectResponse($app->url('list', ['dir' => $directory]));
         }
 
         /** @var Filesystem $filesystem */
         $filesystem = $app['flysystem'];
         $filesystem->put($directory.'/'.$file->getClientOriginalName(), file_get_contents($file->getPathname()));
 
-        return new RedirectResponse('/?dir='.$directory);
+        return new RedirectResponse($app->url('list', ['dir' => $directory]));
     }
 )->bind('upload');
+
+/**
+ * Removes a file
+ */
+$app->post(
+    '/remove',
+    function (Request $request) use ($app) {
+        $directory = $request->query->get('dir', '/');
+        $path = $request->get('path');
+
+        /** @var Filesystem $filesystem */
+        $filesystem = $app['flysystem'];
+
+        if (!$path || !$filesystem->has($path)) {
+            return new RedirectResponse($app->url('list', ['dir' => $directory]));
+        }
+
+        $filesystem->delete($path);
+
+        return new RedirectResponse($app->url('list', ['dir' => $directory]));
+    }
+)->bind('remove');
+
+/**
+ * Creates a directory
+ */
+$app->post(
+    'mkdir',
+    function (Request $request) use ($app) {
+        $directory = $request->query->get('dir', '/');
+        $path = $request->get('path');
+
+        /** @var Filesystem $filesystem */
+        $filesystem = $app['flysystem'];
+
+        $newDirectory = $directory.'/'.$path;
+        $filesystem->createDir($newDirectory);
+
+        return new RedirectResponse($app->url('list', ['dir' => $newDirectory]));
+    }
+)->bind('mkdir');
 
 $app->run();

@@ -11,6 +11,7 @@ use Silex\Provider\TwigServiceProvider;
 class Application extends BaseApplication
 {
     use BaseApplication\TwigTrait;
+    use BaseApplication\UrlGeneratorTrait;
 
     public function __construct()
     {
@@ -45,5 +46,26 @@ class Application extends BaseApplication
 
             return new Filesystem($gcsAdapter);
         };
+
+        $app->extend(
+            'twig',
+            function ($twig) {
+                /** @var \Twig_Environment $twig */
+                $twig->addFunction(
+                    'parent_directory',
+                    new \Twig_SimpleFunction(
+                        'parent_directory',
+                        function ($path) {
+                            $parts = explode('/', rtrim($path, '/'));
+                            array_pop($parts);
+
+                            return implode('/', $parts);
+                        }
+                    )
+                );
+
+                return $twig;
+            }
+        );
     }
 }
