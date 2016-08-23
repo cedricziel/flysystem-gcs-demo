@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Path</th>
+            <th>Last modified</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for file in files if file.type == 'dir' %}
+            <tr>
+                <td>{{ file.type }}</td>
+                <td><a href="{{ path('list', {'dir': file.basename }) }}">{{ file.basename }}</a></td>
+                <td>{{ file.path }}</td>
+                <td>{{ file.timestamp|date('d.m.Y H:i:s') }}</td>
+            </tr>
+        {% endfor %}
+        {% for file in files if file.type == 'file' %}
+            <tr>
+                <td>{{ file.type }}</td>
+                <td>{{ file.basename }}</td>
+                <td>{{ file.path }}</td>
+                <td>{{ file.timestamp|date('d.m.Y H:i:s') }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <pre>
+        Directory: {{ directory }}
+    </pre>
+
+    <form action="{{ path('upload', {'dir': directory}) }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="file">File</label>
+            <input type="file" name="file" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-warning" type="submit">Submit</button>
+        </div>
+    </form>
+
+    {{ dump(files) }}
+{% endblock %}

@@ -1,0 +1,34 @@
+{
+    "name": "cedricziel/flysystem-gcs-demo",
+    "description": "Demo application for the flysystem gcs package",
+    "type": "project",
+    "require": {
+        "silex/silex": "^2.0",
+        "league/flysystem": "^1.0",
+        "cedricziel/flysystem-gcs": "dev-master",
+        "symfony/twig-bridge": "^3.1",
+        "vlucas/phpdotenv": "^2.3"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Cedric Ziel",
+            "email": "cedric@cedric-ziel.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "scripts": {
+        "run": [
+            "echo 'Started web server on http://localhost:8888'",
+            "php -S localhost:8888 -t web web/index.php"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:cedricziel/flysystem-gcs.git"
+        }
+    ]
+}
