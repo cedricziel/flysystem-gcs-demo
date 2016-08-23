@@ -1,11 +1,13 @@
 # Flysystem GCS Demo
 
-Silex application for demo purposes.
+Small application to demo [cedricziel/flysystem-gcs](https://github.com/cedricziel/flysystem-gcs).
 
 You need a Google Cloud project, a Google Cloud Storage Bucket and
 a service account `.json` credentials file.
 
 Place the `.json` file in `res/test-key.json`
+
+![Preview](res/preview.png)
 
 ## Install
 
