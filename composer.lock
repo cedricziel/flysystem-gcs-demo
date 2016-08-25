@@ -12,13 +12,13 @@
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "git@github.com:cedricziel/flysystem-gcs.git",
-                "reference": "039d1abf39be95d0dfea2c264d462f77e770e351"
+                "url": "https://github.com/cedricziel/flysystem-gcs.git",
+                "reference": "e67120adc87c0df227daa0a605a9f87c84a28756"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cedricziel/flysystem-gcs/zipball/039d1abf39be95d0dfea2c264d462f77e770e351",
-                "reference": "039d1abf39be95d0dfea2c264d462f77e770e351",
+                "url": "https://api.github.com/repos/cedricziel/flysystem-gcs/zipball/e67120adc87c0df227daa0a605a9f87c84a28756",
+                "reference": "e67120adc87c0df227daa0a605a9f87c84a28756",
                 "shasum": ""
             },
             "require": {
@@ -49,11 +49,19 @@
                 }
             ],
             "description": "Flysystem adapter for Google Cloud Storage (GCS) that uses gcloud-php",
+            "keywords": [
+                "cloud",
+                "filesystem",
+                "flysystem",
+                "gcs",
+                "google",
+                "google cloud storage"
+            ],
             "support": {
                 "source": "https://github.com/cedricziel/flysystem-gcs/tree/master",
                 "issues": "https://github.com/cedricziel/flysystem-gcs/issues"
             },
-            "time": "2016-08-23 12:52:19"
+            "time": "2016-08-25 07:54:28"
         },
         {
             "name": "firebase/php-jwt",
