@@ -13,16 +13,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cedricziel/flysystem-gcs.git",
-                "reference": "a6ead0aa9e91ecf3a04b46086824187bdf9ba061"
+                "reference": "dba762b47858c342170610d9ac2321d0edc238ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cedricziel/flysystem-gcs/zipball/a6ead0aa9e91ecf3a04b46086824187bdf9ba061",
-                "reference": "a6ead0aa9e91ecf3a04b46086824187bdf9ba061",
+                "url": "https://api.github.com/repos/cedricziel/flysystem-gcs/zipball/dba762b47858c342170610d9ac2321d0edc238ac",
+                "reference": "dba762b47858c342170610d9ac2321d0edc238ac",
                 "shasum": ""
             },
             "require": {
-                "google/cloud": "^0.7",
+                "google/cloud": "^0.8",
                 "league/flysystem": "^1.0"
             },
             "require-dev": {
@@ -58,10 +58,10 @@
                 "google cloud storage"
             ],
             "support": {
-                "source": "https://github.com/cedricziel/flysystem-gcs/tree/master",
+                "source": "https://github.com/cedricziel/flysystem-gcs/tree/v0.3.0",
                 "issues": "https://github.com/cedricziel/flysystem-gcs/issues"
             },
-            "time": "2016-09-05 11:33:28"
+            "time": "2016-09-10 08:51:03"
         },
         {
             "name": "firebase/php-jwt",
@@ -156,16 +156,16 @@
         },
         {
             "name": "google/cloud",
-            "version": "v0.7.0",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/GoogleCloudPlatform/google-cloud-php.git",
-                "reference": "703b896807334b5f3ec1a06b446135266e0795f5"
+                "reference": "79a765fdcb2be9e756f8bf9283ad3626cd2f61d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/703b896807334b5f3ec1a06b446135266e0795f5",
-                "reference": "703b896807334b5f3ec1a06b446135266e0795f5",
+                "url": "https://api.github.com/repos/GoogleCloudPlatform/google-cloud-php/zipball/79a765fdcb2be9e756f8bf9283ad3626cd2f61d4",
+                "reference": "79a765fdcb2be9e756f8bf9283ad3626cd2f61d4",
                 "shasum": ""
             },
             "require": {
@@ -178,6 +178,7 @@
                 "rize/uri-template": "~0.3"
             },
             "require-dev": {
+                "james-heinrich/getid3": "^1.9",
                 "league/json-guard": "^0.3",
                 "phpdocumentor/phpdocumentor": "2.8.*",
                 "phpunit/phpunit": "4.8.*",
@@ -186,7 +187,8 @@
             },
             "suggest": {
                 "google/gax": "Required to support gRPC",
-                "google/proto-client-php": "Required to support gRPC"
+                "google/proto-client-php": "Required to support gRPC",
+                "james-heinrich/getid3": "Allows the Google Cloud Speech client to determine sample rate and encoding of audio inputs"
             },
             "type": "library",
             "autoload": {
@@ -214,6 +216,7 @@
                 "big query",
                 "bigquery",
                 "cloud",
+                "datastore",
                 "gcs",
                 "google",
                 "google api",
@@ -225,12 +228,13 @@
                 "natural language",
                 "pub sub",
                 "pubsub",
+                "speech",
                 "stackdriver logging",
                 "storage",
                 "translate",
                 "vision"
             ],
-            "time": "2016-08-31 22:16:34"
+            "time": "2016-09-09 14:17:08"
         },
         {
             "name": "guzzlehttp/guzzle",
